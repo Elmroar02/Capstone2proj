@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Server=localhost\SQLEXPRESS; Database=capstone2; Trusted_Connection=True;"Microsoft.EntityFrameworkCore.SqlServer -o Models -t Users -c DatabaseContext --context-dir DBContext -f

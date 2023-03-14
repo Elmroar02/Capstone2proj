@@ -1,0 +1,31 @@
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasAnnotation("Relational:Collation", "Japanese_CI_AS");
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Meal)
+                    .IsRequired()
+                    .HasColumnName("Meal");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password");
+
+                entity.Property(e => e.Position)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .HasColumnName("position");
+
+                entity.Property(e => e.Username)
+                    .IsRequired()
+                    .HasColumnName("username");
+            });
+
+
+OnModelCreatingPartial(modelBuilder);
+        }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
